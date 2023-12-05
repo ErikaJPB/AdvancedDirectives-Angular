@@ -1,0 +1,26 @@
+<div>
+  <h1>Ejemplo de Uso de Directiva de Atributo</h1>
+  <p>Sirve para cambiar el color de fondo de cualquier componente.</p>
+  <p>Al pasar el mouse por encima, se aplica el color.</p>
+  <p>Al quitar el mouse se quita el color.</p>
+
+  <!-- Bloque para seleccionar el color con el que subrayar el texto -->
+  <div>
+    <h2>Selecciona el color para subrayar:</h2>
+    <div>
+      <input type="radio" name="colors" (click)="color = 'yellow'" /> Amarillo
+      <input type="radio" name="colors" (click)="color = 'lightgreen'" /> Verde
+      <input type="radio" name="colors" (click)="color = 'cyan'" /> Azul
+    </div>
+  </div>
+
+  <!-- Textos para subrayar -->
+  <div>
+    <p [appHighlight]="color">
+      Texto para probar la directiva sin Default Color.
+    </p>
+    <p [appHighlight]="color" defaultColor="violet">
+      Texto para probar la directiva con Default Color.
+    </p>
+  </div>
+</div>

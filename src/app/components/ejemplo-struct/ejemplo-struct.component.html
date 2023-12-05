@@ -1,1 +1,25 @@
-<p>ejemplo-struct works!</p>
+<div>
+  <h1>Ejemplo Directiva Estructual</h1>
+  <p>
+    Se trata de una directiva mas avanzada que un simple *ngIf="expression" pues
+    tomamos el control y podemos realizar scripts que se puedan ejecutar antes
+    de actualizar la vista.
+  </p>
+  <!-- Ejemplo con directiva con * -->
+  <p *rolCorrecto="rol">
+    Ejemplo basico: Contenido oculto para los que no tienen rol.
+  </p>
+
+  <!-- Ejemplo con directiva -->
+  <ng-template [rolCorrecto]="rol" #bloqueParaRol>
+    <p>Ejemplo con ngTemplate</p>
+    <p>Contenido oculto para los que no tienen el rol</p>
+  </ng-template>
+
+  <!-- Bloque de botones para cambiar el rol -->
+  <div>
+    <button (click)="cambiarRol()">
+      {{ !rol ? "MOSTRAR" : "OCULTAR" }}
+    </button>
+  </div>
+</div>
